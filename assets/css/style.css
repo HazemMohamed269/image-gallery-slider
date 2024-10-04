@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f4fd;
+    min-height: 100vh;
+}
+
+.container{
+    width: 95%;
+    max-width: 1200px;
+}
+
+.slider{
+    position: relative;
+}
+
+.slider .slide-button{
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    background: #3c3c3c;
+    color: #eee;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transform: translateY(-50%);
+}
+
+.slider #prev{
+    left: -20px;
+    display: none;
+}
+
+.slider #next{
+    right: -20px;
+}
+
+.slider .img-list{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    font-size: 0;
+    overflow-x: auto;
+    gap: 20px;
+    scrollbar-width: none;
+    margin-bottom: 20px;
+}
+
+.slider .img-list::-webkit-scrollbar{
+    display: none;
+}
+
+.slider .img-list .img-item{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.container .slider-scrollbar{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track{
+    height: 3px;
+    width: 100%;
+    background-color: #9e9d9d;
+    position: relative;
+    border-radius: 5px;
+}
+
+.slider-scrollbar:hover .scrollbar-track{
+    height: 5px;
+}
+
+.slider-scrollbar .scrollbar-thumb{
+    height: 100%;
+    width: 50%;
+    background-color: #3c3c3c;
+    position: absolute;
+    border-radius: inherit;
+    cursor: grab;
+}
+
+.slider-scrollbar .scrollbar-thumb:active{
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+@media (max-width:1023px) {
+    .slider .slide-button{
+        display: none !important;
+    }
+
+    .slider .img-list{
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .slider .img-list .img-item{
+        width: 280px;
+        height: 300px;
+    }
+
+    .slider-scrollbar .scrollbar-thumb{
+        width: 20%;
+    }
+}
